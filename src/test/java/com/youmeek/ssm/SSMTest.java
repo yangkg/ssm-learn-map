@@ -1,4 +1,4 @@
-package com.youmeek.ssm;
+package com.yangkg.ssm;
 
 
 import com.yangkg.ssm.module.user.pojo.SysUser;

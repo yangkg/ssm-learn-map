@@ -20,7 +20,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
             <list>
                 <value>com.yangkg.ssm.module.*.service.*</value>
                 <!--如果使用的是 hibernate 则这里也要扫描路径，但是 mybatis 不需要-->
-                <!--<value>com.youmeek.ssm.module.*.dao.*</value>-->
+                <!--<value>com.yangkg.ssm.module.*.dao.*</value>-->
             </list>
         </property>
     </bean>
@@ -86,7 +86,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
     
     
     <aop:config>
-        <!--把这个拦截器配置到com.youmeek.ssh.service下(包括子包)下的以impl目录下类的,任意方法-->
+        <!--把这个拦截器配置到com.yangkg.ssh.service下(包括子包)下的以impl目录下类的,任意方法-->
         <!--
         execution的语法表示:在impl包中定义的任意方法的执行，更多方式可以参考：
         http://lavasoft.blog.51cto.com/62575/172292/
