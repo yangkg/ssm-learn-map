@@ -22,5 +22,6 @@ public class SSMTest {
 	public void test1() {
 		SysUser sysUser = sysUserService.getById(1L);
 		System.out.println("--------------------------------" + sysUser.toString());
-	}
+        System.out.println("Print Info-----------Kyle.yangkg-----------sysUser值=" + sysUser + "," + "当前类=SSMTest.test1()");
+    }
 }

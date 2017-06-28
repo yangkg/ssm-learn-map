@@ -31,5 +31,6 @@ public class ControllerTest   {
         SysUserController userController = new SysUserController();
         MockMvc mockMvc = standaloneSetup(userController).build();
         mockMvc.perform(get("/sysUserController/showUserToJspById/1")).andExpect(view().name("showUser"));
+        System.out.println("Print Info-----------Kyle.yangkg-----------值=" + mockMvc + "," + "当前类=ControllerTest.testSysUserController()");
     }
 }
