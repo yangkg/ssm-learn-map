@@ -108,6 +108,16 @@
     <!-- ############################################ servlet end  ############################################ -->
 
 
+    <servlet>
+        <servlet-name>weixinServlet</servlet-name>
+        <servlet-class>com.weixin.servlet.WeiXinServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>weixinServlet</servlet-name>
+        <url-pattern>/wx.do</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>
