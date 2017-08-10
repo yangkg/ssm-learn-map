@@ -60,6 +60,8 @@
         <commons.codec.version>1.6</commons.codec.version>
 
         <joda.version>2.3</joda.version>
+
+        <jsoup.version>1.10.2</jsoup.version>
         <!--架包版本变量 end-->
 
         <!--插件版本变量 start-->
@@ -355,6 +357,28 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${joda.version}</version>
+        </dependency>
+
+        <!--jsoup    START-->
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
+        </dependency>
+
+
+        <!--jsoup    END-->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.7</version>
         </dependency>
 
 

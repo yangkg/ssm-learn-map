@@ -32,7 +32,7 @@ public class Base64Util {
 		LOGGER.info("base解码String耗时:{}",l);
 		return str;
 	}
-	
+
 	public static byte[] base64Encode(byte[] source){
 		DateTime begin = DateTime.now();
 		byte[] res = base.encode(source);
