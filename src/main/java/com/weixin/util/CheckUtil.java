@@ -15,8 +15,9 @@ import java.util.Arrays;
  */
 public class CheckUtil {
     private static final String token = "ruihexuan";
-    public static boolean checkSignature(String signature, String timestamp,String nonce){
-        String[] arr = new String[]{token ,timestamp,nonce};
+
+    public static boolean checkSignature(String signature, String timestamp, String nonce) {
+        String[] arr = new String[]{token, timestamp, nonce};
         //排序 将token、timestamp、nonce三个参数进行字典序排序
         Arrays.sort(arr);
 
@@ -27,7 +28,7 @@ public class CheckUtil {
         }
 
         //sha1加密 将三个参数字符串拼接成一个字符串进行sha1加密
-        String temp= getSha1(content.toString());
+        String temp = getSha1(content.toString());
 
         //开发者获得加密后的字符串可与signature对比，标识该请求来源于微信
         return temp.equals(signature);
@@ -38,7 +39,7 @@ public class CheckUtil {
         if (str == null || str.length() == 0) {
             return null;
         }
-        char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+        char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         MessageDigest mdTemp;
         try {
             mdTemp = MessageDigest.getInstance("SHA1");

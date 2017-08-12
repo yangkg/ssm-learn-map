@@ -1,18 +1,16 @@
 package com.weixin.pojo;
 
 ;
-;import java.util.Date;
+;
 
 /**
  * @author：Kyle.yangkg
  * @create：2017-08-10 上午 10:33
  * ©copyright：www.aisino.com
  */
-public class TextMessage extends BaseMessage{
-
+public class TextMessage extends BaseMessage {
     private String Content;
     private String MsgId;
-
 
     public String getContent() {
         return Content;

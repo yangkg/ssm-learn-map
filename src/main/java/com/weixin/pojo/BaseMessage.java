@@ -48,4 +48,5 @@ public class BaseMessage {
     public void setMsgType(String msgType) {
         MsgType = msgType;
     }
+
 }
