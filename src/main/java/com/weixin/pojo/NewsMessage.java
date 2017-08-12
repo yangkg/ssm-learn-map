@@ -10,9 +10,9 @@ package com.weixin.pojo;
  * @create：2017-08-11 下午 2:31
  * ©copyright：www.aisino.com
  */
-public class NewsMessage extends BaseMessage{
+public class NewsMessage extends BaseMessage {
     private int ArticleCount;
-    private List<News > Articles;
+    private List<News> Articles;
 
     public int getArticleCount() {
         return ArticleCount;
@@ -30,3 +30,4 @@ public class NewsMessage extends BaseMessage{
         Articles = articles;
     }
 }
+

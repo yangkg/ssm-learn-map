@@ -1,6 +1,5 @@
 package com.weixin.servlet;
 
-import com.weixin.pojo.TextMessage;
 import com.weixin.util.CheckUtil;
 import com.weixin.util.MessageUtil;
 import org.dom4j.DocumentException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.Map;
 
 @WebServlet(name = "WeiXinServlet")
@@ -37,17 +35,19 @@ public class WeiXinServlet extends HttpServlet {
             String msgType = map.get("MsgType");
             String content = map.get("Content");
             String responseXml = null;
-            if (MessageUtil.MESSAGE_TEXT.equals(msgType)){
-                if ("1".equals(content)){
+            if (MessageUtil.MESSAGE_TEXT.equals(msgType)) {
+                if ("1".equals(content)) {
                     responseXml = MessageUtil.initText(toUserName, fromUserName, MessageUtil.firstMenue());
-                }else if ("2".equals(content)){
+                } else if ("2".equals(content)) {
                     responseXml = MessageUtil.initNewsMessage(toUserName, fromUserName);
-                }else if ("?".equals(content)|| "？".equals(content)){
+                } else if ("3".equals(content)) {
+                    responseXml = MessageUtil.initImageMessage(toUserName, fromUserName);
+                } else if ("?".equals(content) || "？".equals(content)) {
                     responseXml = MessageUtil.initText(toUserName, fromUserName, MessageUtil.menueText());
                 }
-            }else if (MessageUtil.MESSAGE_EVENT.equals(msgType)){
+            } else if (MessageUtil.MESSAGE_EVENT.equals(msgType)) {
                 String eventType = map.get("Event");
-                if (MessageUtil.MESSAGE_SUBSCRIBE.equals(eventType)){
+                if (MessageUtil.MESSAGE_SUBSCRIBE.equals(eventType)) {
                     responseXml = MessageUtil.initText(toUserName, fromUserName, MessageUtil.menueText());
                 }
 
@@ -57,10 +57,9 @@ public class WeiXinServlet extends HttpServlet {
             System.out.println(responseXml);
 
 
-
         } catch (DocumentException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             responseWriter.close();
         }
     }
@@ -68,13 +67,14 @@ public class WeiXinServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String signature = request.getParameter("signature");
         String timestamp = request.getParameter("timestamp");
-        String nonce =  request.getParameter("nonce");
+        String nonce = request.getParameter("nonce");
         String echostr = request.getParameter("echostr");
 
         PrintWriter out = response.getWriter();
-        if (CheckUtil.checkSignature(signature,timestamp,nonce)){
+        if (CheckUtil.checkSignature(signature, timestamp, nonce)) {
             out.print(echostr);
         }
 
     }
+
 }

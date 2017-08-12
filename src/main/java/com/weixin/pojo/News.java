@@ -51,4 +51,8 @@ public class News {
     public void setUrl(String url) {
         Url = url;
     }
+
 }
+
+
+
