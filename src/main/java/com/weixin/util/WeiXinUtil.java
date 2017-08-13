@@ -32,7 +32,11 @@ public class WeiXinUtil {
 
     private static final String UPLOAD_URL = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
 
-    private static final String CREATE_MENU_URL = " https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
+    private static final String CREATE_MENU_URL = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
+
+    private static final String QUERY_MENU_URL = "https://api.weixin.qq.com/cgi-bin/menu/get";
+
+    private static final String DELETE_MENU_URL ="https://api.weixin.qq.com/cgi-bin/menu/delete";
 
 
     /**
@@ -203,7 +207,27 @@ public class WeiXinUtil {
             result = jsonObject.getIntValue("errcode");
         }
 
-        return result ;
+        return result;
+
+    }
+
+    public static JSONObject queryMenu(String token) {
+        String param = "access_token=" + token;
+        String response = HttpRequest.sendGet(QUERY_MENU_URL, param);
+        JSONObject jsonObject = JSON.parseObject(response);
+        return jsonObject;
+
+    }
+
+    public static int deleteMenu(String token) {
+        int result = 0 ;
+        String param = "access_token=" + token;
+        String response = HttpRequest.sendGet(DELETE_MENU_URL, param);
+        JSONObject jsonObject = JSON.parseObject(response);
+        if (null != jsonObject ){
+            result = jsonObject.getIntValue("errcode");
+        }
+        return result;
 
     }
 
