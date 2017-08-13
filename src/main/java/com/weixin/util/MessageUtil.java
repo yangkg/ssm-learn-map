@@ -35,6 +35,7 @@ public class MessageUtil {
     public static final String MESSAGE_VIEW = "VIEW";
     public static final String MESSAGE_NEWS = "news";
     public static final String MESSAGE_MUSIC = "music";
+    public static final String MESSAGE_SCANCODE  = "scancode_push";
 
 
     public static Map<String, String> xmlToMap(HttpServletRequest request) throws IOException, DocumentException {

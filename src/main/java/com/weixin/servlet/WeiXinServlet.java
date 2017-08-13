@@ -51,7 +51,20 @@ public class WeiXinServlet extends HttpServlet {
                 String eventType = map.get("Event");
                 if (MessageUtil.MESSAGE_SUBSCRIBE.equals(eventType)) {
                     responseXml = MessageUtil.initText(toUserName, fromUserName, MessageUtil.menueText());
+                }else if (MessageUtil.MESSAGE_CLICK.equals(eventType)) {
+                    responseXml = MessageUtil.initText(toUserName, fromUserName, MessageUtil.menueText());
+                }else if (MessageUtil.MESSAGE_VIEW.equals(eventType)) {
+                   String url = map.get("EventKey");
+                    responseXml = MessageUtil.initText(toUserName, fromUserName, url);
+                }else if (MessageUtil.MESSAGE_SCANCODE.equals(eventType)) {
+                    String key = map.get("EventKey");
+                    responseXml = MessageUtil.initText(toUserName, fromUserName, key);
                 }
+
+            }else if (MessageUtil.MESSAGE_LOCATION.equals(msgType)) {
+                //这里需要注意接口文档，开发者文档和实际返回的并不一样。所以有所变动
+                String label = map.get("Label");
+                responseXml = MessageUtil.initText(toUserName, fromUserName, label);
 
             }
 
