@@ -2,6 +2,10 @@ package com.weixin.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.weixin.menu.Button;
+import com.weixin.menu.ClickButton;
+import com.weixin.menu.Menu;
+import com.weixin.menu.ViewButton;
 import com.weixin.pojo.AccessToken;
 
 import java.io.*;
@@ -27,6 +31,8 @@ public class WeiXinUtil {
     private static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token";//?grant_type=client_credential&appid=APPID&secret=APPSECRET
 
     private static final String UPLOAD_URL = "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
+
+    private static final String CREATE_MENU_URL = " https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
 
 
     /**
@@ -147,6 +153,59 @@ public class WeiXinUtil {
         return mediaId;
     }
 
+
+    /**
+     * 组装菜单
+     *
+     * @return
+     */
+    public static Menu initMenu() {
+        Menu menu = new Menu();
+
+        ClickButton clickButton = new ClickButton();
+        clickButton.setName("click菜单");
+        clickButton.setType("click");
+        clickButton.setKey("11");
+
+        ViewButton viewButton = new ViewButton();
+
+        viewButton.setName("view菜单");
+        viewButton.setType("view");
+        //注意：这个URL必须是完整的，包括协议（http）
+        viewButton.setUrl("http://www.imooc.com");
+
+        ClickButton clickButton2 = new ClickButton();
+        clickButton2.setName("扫码事件");
+        clickButton2.setType("scancode_push");
+        clickButton2.setKey("31");
+
+        ClickButton clickButton3 = new ClickButton();
+        clickButton3.setName("地理位置");
+        clickButton3.setType("location_select");
+        clickButton3.setKey("32");
+
+        Button button = new Button();
+        button.setName("菜单");
+        button.setSub_button(new Button[]{clickButton2, clickButton3});
+
+        menu.setButton(new Button[]{clickButton, viewButton, button});
+        return menu;
+
+    }
+
+    public static int createMenu(String token, String menu) {
+        int result = 0;
+        String url = CREATE_MENU_URL.replace("ACCESS_TOKEN", token);
+        String response = HttpRequest.sendPost(url, menu);
+        JSONObject jsonObject = JSON.parseObject(response);
+
+        if (null != jsonObject) {
+            result = jsonObject.getIntValue("errcode");
+        }
+
+        return result ;
+
+    }
 
 
 }
