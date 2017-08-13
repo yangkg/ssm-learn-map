@@ -29,6 +29,17 @@ public class WeixinTest {
             }else {
                 System.out.println("创建菜单失败,失败码为："+result);
             }
+
+            //JSONObject jsonObject = WeiXinUtil.queryMenu(token.getAccess_token());
+            //System.out.println(jsonObject);
+
+            //int result = WeiXinUtil.deleteMenu(token.getAccess_token());
+            //if (0 == result){
+            //    System.out.println("菜单删除成功");
+            //}else {
+            //    System.out.println("菜单创建失败,失败码为："+result);
+            //}
+
         } catch (Exception e) {
             e.printStackTrace();
         }
