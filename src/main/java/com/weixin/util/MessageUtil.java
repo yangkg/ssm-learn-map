@@ -34,6 +34,7 @@ public class MessageUtil {
     public static final String MESSAGE_CLICK = "CLICK";
     public static final String MESSAGE_VIEW = "VIEW";
     public static final String MESSAGE_NEWS = "news";
+    public static final String MESSAGE_MUSIC = "music";
 
 
     public static Map<String, String> xmlToMap(HttpServletRequest request) throws IOException, DocumentException {
@@ -142,11 +143,17 @@ public class MessageUtil {
         return message;
     }
 
+    /**
+     * 讲图片消息转换为xml
+     *
+     * @param imageMessage
+     * @return
+     */
     public static String imageMessageToXML(ImageMessage imageMessage) {
         XStream xStream = new XStream();
         //将xml的根元素替换为"xml"，如果不替换的话这是"com.weixin.pojp.TextMessage"
         xStream.alias("xml", imageMessage.getClass());
-        xStream.alias("item", new News().getClass());
+        //xStream.alias("item", new News().getClass());
         String xml = xStream.toXML(imageMessage);
         return xml;
 
@@ -170,6 +177,35 @@ public class MessageUtil {
         imageMessage.setFromUserName(toUserName);
         imageMessage.setMsgType(MESSAGE_IMAGE);
         message = imageMessageToXML(imageMessage);
+        return message;
+    }
+
+
+    public static String musicMessageToXML(MusicMessage musicMessage ) {
+        XStream xStream = new XStream();
+        //将xml的根元素替换为"xml"，如果不替换的话这是"com.weixin.pojp.TextMessage"
+        xStream.alias("xml", musicMessage.getClass());
+        //xStream.alias("Music", new Music().getClass());
+        String xml = xStream.toXML(musicMessage);
+        return xml;
+
+    }
+
+    public static String initMusicMessage(String toUserName, String fromUserName) {
+        String message = null;
+        Music music = new Music();
+        music.setThumbMediaId("zw5UZAVyId5qdB1Y9aAqO1vPo5hRKIbC3bDpjiuLFr1CGUBonF_9Akjvc8XcLv7C");
+        music.setTitle("see you again");
+        music.setDescription("速度与激情7片尾曲");
+        music.setMusicUrl("http://reihx.ngrok.cc/ssm/music/SeeYouAgain.mp3");
+        music.setHQMusicUrl("http://reihx.ngrok.cc/ssm/music/SeeYouAgain.mp3");
+        MusicMessage musicMessage = new MusicMessage();
+        musicMessage.setFromUserName(toUserName);
+        musicMessage.setToUserName(fromUserName);
+        musicMessage.setMusic(music);
+        musicMessage.setCreateTime(new Date().getTime());
+        musicMessage.setMsgType(MESSAGE_MUSIC);
+        message = musicMessageToXML(musicMessage);
         return message;
     }
 

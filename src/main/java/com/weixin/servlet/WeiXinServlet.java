@@ -42,6 +42,8 @@ public class WeiXinServlet extends HttpServlet {
                     responseXml = MessageUtil.initNewsMessage(toUserName, fromUserName);
                 } else if ("3".equals(content)) {
                     responseXml = MessageUtil.initImageMessage(toUserName, fromUserName);
+                }else if ("4".equals(content)) {
+                    responseXml = MessageUtil.initMusicMessage(toUserName, fromUserName);
                 } else if ("?".equals(content) || "？".equals(content)) {
                     responseXml = MessageUtil.initText(toUserName, fromUserName, MessageUtil.menueText());
                 }
