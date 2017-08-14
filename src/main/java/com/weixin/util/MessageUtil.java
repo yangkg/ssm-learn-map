@@ -1,7 +1,11 @@
 package com.weixin.util;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.thoughtworks.xstream.XStream;
 import com.weixin.pojo.*;
+import com.weixin.trans.TransResult;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -83,6 +87,7 @@ public class MessageUtil {
         sb.append("欢迎您的关注,请按照菜单提示进行操作！\n\n");
         sb.append("1、课程介绍\n");
         sb.append("2、慕课网介绍\n");
+        sb.append("3、词组翻译\n");
         sb.append("回复？显示此菜单！");
 
         return sb.toString();
@@ -99,6 +104,17 @@ public class MessageUtil {
         sb.append("慕课网是垂直的互联网IT技能免费学习网站。以独家视频教程、在线编程工具、学习计划、问答社区为核心特色。在这里，你可以找到最好的互联网技术牛人，也可以通过免费的在线公开视频课程学习国内领先的互联网IT技术。\n" +
                 "慕课网课程涵盖前端开发、PHP、Html5、Android、iOS、Swift等IT前沿技术语言，包括基础课程、实用案例、高级分享三大类型，适合不同阶段的学习人群。以纯干货、短视频的形式为平台特点，为在校学生、职场白领提供了一个迅速提升技能、共同分享进步的学习平台。[1] \n" +
                 "4月2日，国内首个IT技能学习类应用——慕课网3.1.0版本在应用宝首发。据了解，在此次上线的版本中，慕课网新增了课程历史记录、相关课程推荐等四大功能，为用户营造更加丰富的移动端IT学习体验。[2] ");
+        return sb.toString();
+    }
+
+    public static String threeMenu(){
+        StringBuffer sb = new StringBuffer();
+        sb.append("词组翻译使用指南\n\n");
+        sb.append("使用示例：\n");
+        sb.append("翻译足球\n");
+        sb.append("翻译中国足球\n");
+        sb.append("翻译football\n\n");
+        sb.append("回复？显示主菜单。");
         return sb.toString();
     }
 
@@ -209,6 +225,22 @@ public class MessageUtil {
         message = musicMessageToXML(musicMessage);
         return message;
     }
+
+    public static String formateTranslateResult(String result) {
+        StringBuffer response  = new StringBuffer();
+
+        TransResult transResult = JSON.parseObject(result, TransResult.class);
+        response.append("翻译前：").append(transResult.getTrans_result()[0].getSrc());
+        response.append("\n");
+        response.append("翻译后：").append(transResult.getTrans_result()[0].getDst());
+
+
+        return response.toString();
+
+
+    }
+
+
 
 
 }
