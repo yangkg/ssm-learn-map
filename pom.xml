@@ -62,6 +62,7 @@
         <joda.version>2.3</joda.version>
 
         <jsoup.version>1.10.2</jsoup.version>
+        <gson-version>2.2.2</gson-version>
         <!--架包版本变量 end-->
 
         <!--插件版本变量 start-->
@@ -333,6 +334,11 @@
             <version>${fastjson.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson-version}</version>
+        </dependency>
 
         <!-- 上传组件包 -->
         <dependency>

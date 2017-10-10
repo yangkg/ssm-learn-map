@@ -1,4 +1,4 @@
-package com.programmingProjectList;
+package com.programming.projectlist;
 
 ;
 ;

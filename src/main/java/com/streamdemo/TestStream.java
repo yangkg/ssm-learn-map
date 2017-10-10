@@ -1,10 +1,8 @@
-package com.streamDemo;
+package com.streamdemo;
 
 ;
 ;import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 测试

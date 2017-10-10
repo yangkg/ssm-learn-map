@@ -37,7 +37,7 @@ class Business {
     boolean bsShouldSbu = true;
 
     public synchronized void sub(int i) {
-        while (bsShouldSbu) {
+        while (!bsShouldSbu) {
             try {
                 this.wait();
             } catch (InterruptedException e) {
