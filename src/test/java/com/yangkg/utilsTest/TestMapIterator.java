@@ -50,5 +50,14 @@ public class TestMapIterator {
             System.out.println(value);
         }
 
+
+        HashMap<Object , String > map = new HashMap<>();
+        map.put("sqm",null);
+        map.put(null,"233");
+        map.put("","344");
+
+        System.out.println(map.get("sqm"));
+        System.out.println(map.get(null));
+        System.out.println(map.get(""));
     }
 }
