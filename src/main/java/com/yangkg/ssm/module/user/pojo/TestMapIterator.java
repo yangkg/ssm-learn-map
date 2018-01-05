@@ -1,4 +1,4 @@
-package com.yangkg.utilsTest;
+package com.yangkg.ssm.module.user.pojo;
 
 ;
 ;import sun.applet.Main;
@@ -59,5 +59,8 @@ public class TestMapIterator {
         System.out.println(map.get("sqm"));
         System.out.println(map.get(null));
         System.out.println(map.get(""));
+
+        String temp = (String)null ;
+        System.out.println(temp.length());
     }
 }
