@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bar</title>
+    <!--<script src="..\..\statics\js\echarts\echarts.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts-en.common.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px; height: 400px;"></div>
+<div id="pie" style="width: 600px; height:400px;"></div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+        title: {text: 'Echarts 入门实例', left: '50px', textStyle: {color: '#333', fontSize: 18}},
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {show: true},
+                restore: {show: true},
+                dataZoom: {show: true},
+                saveAsImage: {show: true},
+                magicType: {type: ['line', 'bar', 'stack', 'tiled']}
+            }
+        },
+        tooltip: {
+            show: true,
+            trigger: 'axis'
+        },
+        legend: {data: ['销量', '产量']},
+        xAxis: {data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]},
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值', symbol: 'arrow'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }, {
+            name: '产量',
+            type: "line",
+            data: [7, 22, 40, 15, 23, 25]
+        }]
+    };
+    myChart.setOption(option);
+
+    myChart = echarts.init(document.getElementById("pie"));
+
+    option = {
+        series: {
+            type: "pie",
+            data: [
+                {name: "红", value: 1212},
+                {name: "黄", value: 2323},
+                {name: "蓝", value: 1919}
+            ]
+        }
+    };
+    myChart.setOption(option);
+
+</script>
+</body>
+</html>
