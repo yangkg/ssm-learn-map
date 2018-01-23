@@ -1,4 +1,4 @@
-package com.streamDemo;
+package com.streamdemo;
 
 ;
 ;

@@ -145,7 +145,8 @@ public class MessageUtil {
         news.setTitle("慕课网介绍");
         news.setDescription("慕课网是垂直的互联网IT技能免费学习网站。以独家视频教程、在线编程工具、学习计划、问答社区为核心特色。在这里，你可以找到最好的互联网技术牛人，也可以通过免费的在线公开视频课程学习国内领先的互联网IT技术。慕课网课程涵盖前端开发、PHP、Html5、Android、iOS、Swift等IT前沿技术语言，包括基础课程、实用案例、高级分享三大类型，适合不同阶段的学习人群。");
         news.setPicUrl("http://reihx.ngrok.cc/ssm/image/123.png");
-        news.setUrl("www.imooc.com");
+        //news.setUrl("www.imooc.com");
+        news.setUrl("http://reihx.ngrok.cc/ssm/index.jsp");
 
         newsList.add(news);
 

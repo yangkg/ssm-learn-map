@@ -24,9 +24,9 @@ import java.security.NoSuchProviderException;
  * ©copyright：www.aisino.com
  */
 public class WeiXinUtil {
-    private static final String APPID = "wx0b68ae8c87cda01c";
+    private static final String APPID = "wxe1a35fea13b9811b";
     //AppSecret = 28277424282c90a5ac20d10e0046f1eb;//瑞和轩
-    private static final String APPSECRET = "6cfef80f65d984aedb02dce3b23e2bfa";
+    private static final String APPSECRET = "65541305ec00f1d748e5225d8c77f4f6";
 
     private static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token";//?grant_type=client_credential&appid=APPID&secret=APPSECRET
 

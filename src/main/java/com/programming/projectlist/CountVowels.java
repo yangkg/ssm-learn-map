@@ -1,4 +1,4 @@
-package com.programmingProjectList;
+package com.programming.projectlist;
 
 import java.util.Scanner;
 
@@ -15,10 +15,29 @@ import java.util.Scanner;
  */
 public class CountVowels {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("请输入：");
-        String line = scanner.nextLine();
-        System.out.println(countVowels(line));
+        //Scanner scanner = new Scanner(System.in);
+        ////System.out.println("请输入：");
+        //String line = scanner.nextLine();
+        //System.out.println(countVowels(line));
+        int i = 0xFFFFFFFF;
+        char a = '\u0571';
+        int c = 'a';
+        byte b = 01 ;
+        long l = 455555666666L;
+        System.out.println(i);
+        System.out.println(a);
+        System.out.println(c);
+        System.out.println(b);
+        System.out.println(l);
+        System.out.println(Long.MAX_VALUE);
+
+        String temp = "hello";
+        String temp1 = "he" + new String("llo");
+        System.out.println(temp == temp1);
+
+
+
+
     }
 
     private static int countVowels(String line) {
