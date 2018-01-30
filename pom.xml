@@ -413,6 +413,15 @@
             <version>${joda-time-version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.8</version>
+        </dependency>
+
+
+
+
 
     </dependencies>
     <!--架包依赖 end-->
