@@ -25,7 +25,7 @@ public class FileUtilsTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(FileUtilsTest.class.getName());
 
     public static void main(String[] args) {
-        String fileName = "D:\\warn.2018-01-25-1.log";
+        String fileName = "D:\\warn.2018-01-30-1.log";
         List<String> lines = readFileByLines(fileName);
         List<QueryTime> queryTimes = new ArrayList<>();
 
@@ -54,7 +54,7 @@ public class FileUtilsTest {
         }
 
 
-        writeExcel("D:\\2018-01-25-1.xls", queryTimes);
+        writeExcel("D:\\2018-01-30-1.xls", queryTimes);
 
 
     }
@@ -64,7 +64,7 @@ public class FileUtilsTest {
         //第一步，创建一个workbook对应一个excel文件
         HSSFWorkbook workbook = new HSSFWorkbook();
         //第二部，在workbook中创建一个sheet对应excel中的sheet
-        HSSFSheet sheet = workbook.createSheet("订单列表查询耗时统计");
+        HSSFSheet sheet = workbook.createSheet("2018-01-25订单列表查询耗时统计");
         //第三部，在sheet表中添加表头第0行，老版本的poi对sheet的行列有限制
         HSSFRow row = sheet.createRow(0);
         //第四步，创建单元格，设置表头
